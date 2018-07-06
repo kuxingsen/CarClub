@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0 //EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.carClub.mapper.EmployeeMapper">
+    <cache eviction="FIFO"
+           flushInterval="60000"
+           size="512"
+           readOnly="true"/>
+
+    <resultMap id="trainServiceResult" type="cn.carClub.dto.AllService">
+        <result property="memberId" column="memberId"/>
+        <result property="memberName" column="memberName"/>
+        <result property="serviceId" column="trainId"/>
+        <result property="serviceTime" column="trainTime"/>
+        <result property="serviceMessage" column="trainMessage"/>
+    </resultMap>
+
+    <resultMap id="rescueServiceResult" type="cn.carClub.dto.AllService">
+        <result property="memberId" column="memberId"/>
+        <result property="memberName" column="memberName"/>
+        <result property="serviceId" column="rescueId"/>
+        <result property="serviceTime" column="rescueTime"/>
+        <result property="serviceMessage" column="rescuePlace"/>
+    </resultMap>
+
+    <resultMap id="travelServiceResult" type="cn.carClub.dto.AllService">
+        <result property="memberId" column="memberId"/>
+        <result property="memberName" column="memberName"/>
+        <result property="serviceId" column="travelId"/>
+        <result property="serviceTime" column="travelTime"/>
+        <result property="serviceMessage" column="travelAddress"/>
+</resultMap>
+
+    <select id="findEmployee" resultType="Employee" parameterType="java.lang.String">
+        SELECT * FROM Employee WHERE username = #{username} and password = #{password}
+    </select>
+    <select id="getEmployeeById" resultType="Employee">
+        SELECT * FROM Employee WHERE employeeId=#{id}
+    </select>
+
+    <select id="getAllEmployee" resultType="Employee">
+        SELECT * FROM Employee
+    </select>
+
+    <insert id="addEmployee" parameterType="Employee" >
+        INSERT into Employee VALUEs
+        (#{employeeId},#{employeeName},#{employeeSex},#{employeePhone},#{employeeEmail},
+        #{employeeAddr},#{employeeAge},#{employeePower},#{username},#{password})
+    </insert>
+
+    <delete id="deleteEmployee" parameterType="String">
+        DELETE FROM Employee WHERE employeeId=#{employeeId}
+    </delete>
+
+    <update id="modifyEmployee">
+        UPDATE Employee SET
+         employeeName=#{employeeName},employeeSex=#{employeeSex},employeePhone=#{employeePhone} ,employeeEmail=#{employeeEmail} ,employeeAddr=#{employeeAddr} ,employeeAge=#{employeeAge}
+        <if test="username != null">
+            ,username=#{username}
+        </if>
+        <if test="password != null">
+            ,password=#{password}
+        </if>
+        <where>
+             employeeId=#{employeeId}
+         </where>
+    </update>
+
+
+
+
+    <select id="getAllRemind" resultType="Remind">
+        SELECT * FROM Remind r,Employee e WHERE r.EmployeeId=e.EmployeeId
+    </select>
+
+    <select id="getRemindByEmployeeId" resultType="Remind">
+        SELECT * FROM Remind r,Employee e WHERE r.employeeId = #{employeeId} AND r.EmployeeId=e.EmployeeId
+    </select>
+
+    <select id="getRemindByRemindId" resultType="Remind">
+        SELECT * FROM Remind r,Employee e WHERE remindId = #{remindid} AND r.employeeId=e.employeeId
+    </select>
+
+    <insert id="addRemind" parameterType="Remind" >
+        INSERT into Remind VALUEs (#{remindId},#{remindTime},#{remindMessage},#{employeeId},#{remindStatus})
+    </insert>
+
+    <delete id="deleteRemind" parameterType="String">
+        DELETE FROM Remind WHERE remindId=#{remindId}
+    </delete>
+
+    <update id="modifyRemind">
+        UPDATE Remind SET remindTime=#{remindTime},remindMessage=#{remindMessage},remindStatus=#{remindStatus} WHERE remindId=#{remindId}
+    </update>
+
+
+
+
+    <select id="getAllTrainService" resultMap="trainServiceResult">
+        SELECT * from Member m,Train t WHERE t.memberId=m.memberId
+    </select>
+    <select id="getAllRescueService" resultMap="rescueServiceResult">
+        SELECT * from Member m,Rescue r WHERE r.memberId=m.memberId
+    </select>
+    <select id="getAllTravelService" resultMap="travelServiceResult">
+        SELECT * from Member m,Travel t WHERE t.memberId=m.memberId
+    </select>
+
+</mapper>

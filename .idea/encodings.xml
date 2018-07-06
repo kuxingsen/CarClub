@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/sql/carclub.sql" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/about.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/employee.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/footer.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/header.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/index.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/login.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/modal.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/register.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/report.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/rescue.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/static/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/train.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/travel.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/userInfo.jsp" charset="GBK" />
+  </component>
+</project>
