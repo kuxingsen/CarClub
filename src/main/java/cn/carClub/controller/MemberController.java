@@ -78,7 +78,6 @@ public class MemberController {
 
     @RequestMapping("/train/add")
     public String addTrain(TrainTmp train){
-        train.setTrainId("55222");
 
         System.out.println(train);
         int i = memberService.addTrain(train);
@@ -121,7 +120,6 @@ public class MemberController {
     @RequestMapping("/travel/add")
     @ResponseBody
     public String addTravel(Travel travel){
-        travel.setTravelId("02322");
         System.out.println(travel);
         int i = memberService.addTravel(travel);
         if(i != -1)
@@ -186,7 +184,6 @@ public class MemberController {
     @RequestMapping("/rescue/add")
     @ResponseBody
     public String addRescue(Rescue rescue){
-        rescue.setRescueId("2352");
         System.out.println(rescue);
         int i = memberService.addRescue(rescue);
         if(i != -1)

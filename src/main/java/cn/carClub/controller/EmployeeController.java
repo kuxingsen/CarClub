@@ -191,7 +191,6 @@ public class EmployeeController {
     @ResponseBody
     public String addRemind(Remind remind)
     {
-        remind.setRemindId("005");
         System.out.println(remind);
         int i = employeeService.addRemind(remind);
         if(i != -1)

@@ -20,10 +20,10 @@
         SELECT * FROM Train t, member m WHERE t.MemberId=m.MemberId
     </select>
     <select id="getTrainByMemberId" resultMap="trainResult" parameterType="String">
-        SELECT * FROM Train t, member m WHERE t.memberId = #{memberId} AND t.MemberId=m.MemberId
+        SELECT * FROM Train t, member m WHERE t.memberId = #{memberId} AND `t`.MemberId=m.MemberId
     </select>
     <insert id="addTrain" parameterType="cn.carClub.dto.TrainTmp" >
-        INSERT into Train VALUEs(#{trainId},#{trainTime},#{memberId},#{trainMessage},#{message})
+        INSERT into Train VALUEs(null,#{trainTime},#{trainMessage},#{message},#{memberId})
     </insert>
     <!--<delete id="deleteTrain" parameterType="String">-->
         <!--DELETE FROM Train WHERE trainId=#{trainId}-->
@@ -42,8 +42,8 @@
     <select id="getTravelByMemberId" resultType="Travel" parameterType="String">
         SELECT * FROM Travel t, member m WHERE t.memberId = #{memberId} AND t.MemberId=m.MemberId
     </select>
-    <insert id="addTravel" parameterType="Travel" >
-        INSERT into Travel VALUEs (#{travelId},#{travelTime},#{travelAddress},#{memberId},#{travelPrice})
+    <insert id="addTravel" parameterType="Travel" useGeneratedKeys="true" keyProperty="travelId">
+        INSERT into Travel VALUEs (null,#{travelTime},#{travelAddress},#{travelPrice},#{memberId})
     </insert>
     <delete id="deleteTravel" parameterType="String">
     DELETE FROM Travel WHERE travelId=#{travelId}
@@ -62,8 +62,8 @@
     <select id="getRescueByRescueId" resultType="Rescue" parameterType="String">
         SELECT * FROM Rescue r, member m WHERE rescueId = #{rescueId} AND r.MemberId=m.MemberId
     </select>
-    <insert id="addRescue" parameterType="Rescue" >
-        INSERT into Rescue VALUEs (#{rescueId},#{rescueTime},#{rescuePlace},#{rescueStatus},#{memberId},#{carId})
+    <insert id="addRescue" parameterType="Rescue" useGeneratedKeys="true" keyColumn="rescueId">
+        INSERT into Rescue VALUEs (null,#{rescueTime},#{rescuePlace},#{rescueStatus},#{memberId},#{carId})
     </insert>
     <delete id="deleteRescue" parameterType="String">
         DELETE FROM Rescue WHERE rescueId=#{rescueId}

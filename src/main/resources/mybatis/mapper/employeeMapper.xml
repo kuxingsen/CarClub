@@ -83,7 +83,7 @@
     </select>
 
     <insert id="addRemind" parameterType="Remind" >
-        INSERT into Remind VALUEs (#{remindId},#{remindTime},#{remindMessage},#{employeeId},#{remindStatus})
+        INSERT into Remind VALUEs (null,#{remindTime},#{remindMessage},#{remindStatus},#{employeeId})
     </insert>
 
     <delete id="deleteRemind" parameterType="String">
